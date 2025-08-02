@@ -1,0 +1,8 @@
+# Python
+.venv/
+__pycache__/
+*.py[cod]
+*.env
+
+# Dependency directories
+*/site-packages/
