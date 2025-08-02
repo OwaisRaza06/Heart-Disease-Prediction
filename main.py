@@ -4,6 +4,7 @@ from typing import Annotated, List, Optional, Literal
 import pandas as pd
 import pickle
 from fastapi.responses import JSONResponse
+from mangum import Mangum
 
 with open('model.pkl', 'rb') as file:
     model = pickle.load(file)
@@ -32,6 +33,8 @@ class Person(BaseModel):
          return self.weight/self.height**2
 
 app = FastAPI()
+
+handler = Mangum(app)
 
 @app.get("/")
 def health():
